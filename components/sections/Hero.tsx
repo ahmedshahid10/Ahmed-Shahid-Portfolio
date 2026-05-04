@@ -2,11 +2,18 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { Component, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, FileText, ArrowRight, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { contactInfo } from "@/data/contact";
 import { useReducedMotion } from "@/lib/utils";
+
+class CanvasBoundary extends Component<{ children: ReactNode }, { err: boolean }> {
+  state = { err: false };
+  static getDerivedStateFromError() { return { err: true }; }
+  render() { return this.state.err ? null : this.props.children; }
+}
 
 const HeroCanvas = dynamic(() => import("@/components/three/HeroCanvas"), {
   ssr: false,
@@ -147,7 +154,9 @@ export function Hero() {
             aria-hidden="true"
             className="hidden lg:flex items-center justify-center h-[480px] xl:h-[540px]"
           >
-            <HeroCanvas />
+            <CanvasBoundary>
+              <HeroCanvas />
+            </CanvasBoundary>
           </div>
         </div>
       </div>
