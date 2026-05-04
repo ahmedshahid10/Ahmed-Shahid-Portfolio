@@ -1,0 +1,70 @@
+import type { Experience } from "@/types";
+
+export const experiences: Experience[] = [
+  {
+    company: "Siemens Canada",
+    role: "GenAI Specialist",
+    location: "Oakville, ON",
+    startDate: "Sep 2025",
+    endDate: "Present",
+    current: true,
+    technologies: [
+      "SiemensGPT",
+      "Microsoft Copilot",
+      "Azure",
+      "LLMs",
+      "Python",
+      "Power Automate",
+    ],
+    bullets: [
+      "Built and deployed custom AI agents and chatbot solutions using SiemensGPT and Microsoft Copilot, delivering up to 35 custom AI chatbots per week at peak output.",
+      "Automated repetitive cross-departmental workflows, reducing manual processing workload by over 30%.",
+      "Fine-tuned and evaluated domain-specific LLMs, improving contextual accuracy and response coherence by 40%.",
+      "Collaborated with data scientists, software engineers, and business stakeholders to align AI solutions with operational priorities.",
+      "Contributed to enterprise AI enablement through training sessions, workshops, and internal learning modules.",
+    ],
+  },
+  {
+    company: "Siemens Canada",
+    role: "Data Specialist",
+    location: "Oakville, ON",
+    startDate: "May 2024",
+    endDate: "Sep 2025",
+    current: false,
+    technologies: ["Tableau", "Snowflake", "Excel", "Power Apps", "C", "SAP"],
+    bullets: [
+      "Built and maintained Tableau dashboards connected to Snowflake, reducing manual reporting effort by 20%.",
+      "Wrote and executed C test scripts for the COMPAS GO application, improving testing efficiency by 25%.",
+      "Built internal Power Apps solutions to digitize and streamline cross-functional workflows.",
+      "Improved data accuracy and standardized internal reporting processes across departments.",
+    ],
+  },
+  {
+    company: "Wilfrid Laurier University",
+    role: "Lab Instructional Assistant, CS Department",
+    location: "Waterloo, ON",
+    startDate: "Sep 2023",
+    endDate: "Apr 2024",
+    current: false,
+    technologies: ["Java", "OOP", "JUnit"],
+    bullets: [
+      "Taught introductory Java and object-oriented programming concepts to undergraduate students.",
+      "Supported students through lab sessions, office hours, and targeted learning exercises.",
+      "Assisted in designing and administering assessments; proctored exams maintaining academic integrity.",
+    ],
+  },
+  {
+    company: "VTrade Connections Inc.",
+    role: "Software Development Engineer",
+    location: "Toronto, ON",
+    startDate: "May 2023",
+    endDate: "Aug 2023",
+    current: false,
+    technologies: ["Python", "OpenCV", "React.js", "JavaScript", "CSS"],
+    bullets: [
+      "Implemented machine vision solutions using Python and OpenCV, reducing textile defect rates by 15% through real-time defect identification.",
+      "Built a responsive marketing website using React.js, increasing user session duration by 25%.",
+      "Collaborated on ERP software requirements and contributed to technical implementation planning.",
+    ],
+  },
+];
