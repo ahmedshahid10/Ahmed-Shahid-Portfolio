@@ -1,48 +1,27 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { PageTransition } from "@/components/layout/PageTransition";
-import { Providers } from "@/components/layout/Providers";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { TabNav } from "@/components/layout/TabNav";
 import { siteConfig } from "@/data/site";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 const BASE_URL = "https://ahmedshahid10.github.io/Ahmed-Shahid-Portfolio";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ahmed Shahid | GenAI Specialist",
-    template: "%s | Ahmed Shahid",
+    default: `${siteConfig.name} | ${siteConfig.role}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.summary,
   metadataBase: new URL(BASE_URL),
   openGraph: {
-    title: "Ahmed Shahid | GenAI Specialist",
+    title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.summary,
     type: "website",
     url: BASE_URL,
-    siteName: "Ahmed Shahid Portfolio",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Ahmed Shahid — GenAI Specialist",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ahmed Shahid | GenAI Specialist",
-    description: siteConfig.summary,
-    images: ["/og-image.png"],
+    siteName: `${siteConfig.name} Portfolio`,
   },
 };
 
@@ -52,23 +31,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={inter.variable}
-      suppressHydrationWarning
-    >
-      <body className="bg-background text-text-primary font-sans antialiased">
-        <Providers>
-          <ScrollProgress />
-          <a href="#main-content" className="skip-to-content">
-            Skip to main content
-          </a>
-          <Navbar />
-          <main id="main-content">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </Providers>
+    <html lang="en">
+      <body className={inter.className}>
+        <div className="min-h-screen p-4 sm:p-6 lg:p-8">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="lg:grid lg:grid-cols-[290px_1fr] lg:gap-6 lg:items-start">
+              <Sidebar />
+              <div className="mt-4 lg:mt-0">
+                <TabNav />
+                <main>{children}</main>
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );

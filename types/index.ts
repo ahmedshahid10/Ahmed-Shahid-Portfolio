@@ -29,6 +29,8 @@ export interface Skill {
 
 export interface ContactInfo {
   email: string;
+  phone: string;
+  location: string;
   linkedin: string;
   github: string;
   resumeUrl: string;
